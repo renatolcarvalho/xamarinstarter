@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XamarinStarter.View.Aluno.NovoAluno"
+             xmlns:VM="clr-namespace:XamarinStarter.ViewModel"
+             Title="Lista Alunos">
+    <ContentPage.BindingContext>
+        <VM:NovoAlunoViewModel></VM:NovoAlunoViewModel>
+    </ContentPage.BindingContext>
+    <ScrollView>
+        <StackLayout>
+            <Entry Placeholder="Nome" Text="{Binding Nome}"></Entry>
+            <Entry Placeholder="Curso" Text="{Binding Curso}"></Entry>
+            <Entry Placeholder="Nota" Text="{Binding Nota}"></Entry>
+            <Button x:Name="btnSalvar" Command="{Binding NovoAlunoCommand}" Text="Salvar"></Button>
+            <Button x:Name="btnDeletar" Command="{Binding DeletarAlunoCommand}" Text="Deletar"></Button>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

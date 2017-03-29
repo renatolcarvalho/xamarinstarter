@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XamarinStarter.View.Aluno.ListaAluno"
+             xmlns:VM="clr-namespace:XamarinStarter.ViewModel"
+             Title="Lista Alunos">
+    <ContentPage.BindingContext>
+        <VM:AlunoObservableViewModel></VM:AlunoObservableViewModel>
+    </ContentPage.BindingContext>
+    <StackLayout>
+        <Button Text="Novo Aluno" x:Name="btnNovoAluno"></Button>
+        <Button Text="Carregar Alunos" Command="{Binding AlunoObservableCommand}"></Button>
+        <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}"></ActivityIndicator>
+        <ListView x:Name="lvAlunos" ItemsSource="{Binding Alunos}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ImageCell Text="{Binding Nome}" Detail="{Binding Curso}"></ImageCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</ContentPage>
